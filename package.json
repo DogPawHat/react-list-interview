@@ -1,0 +1,19 @@
+{
+  "name": "react-list-interview",
+  "version": "0.0.1",
+  "description": "Post-interview implementation of a list I was meant to implement on a white board using React.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DogPawHat/react-list-interview.git"
+  },
+  "author": "Ciarán Curley <ciaran.curley.11.11@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/DogPawHat/react-list-interview/issues"
+  },
+  "homepage": "https://github.com/DogPawHat/react-list-interview#readme"
+}
