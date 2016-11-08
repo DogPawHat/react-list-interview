@@ -1,53 +1,43 @@
 import * as React from 'react';
 import ListInput from './ListInput';
 import List from './List';
+import ListCounter from './ListCounter';
 
+class App extends React.Component {
+    state = {
+        input: '',
+        list: []
+    }
 
-class App extends React.Component{
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {
-            input: '',
-            list: []
-        }
     }
     changeInput = (newInput) => {
-        this.setState({
-            input: newInput
-        })
+        this.setState({input: newInput})
     }
     addItem = (newItem) => {
         this.setState((prevState) => {
-            const newItems = prevState.list.append(prevState.input);
-            return {
-                list: newItems
-            }
+            const newItems = prevState.list.concat([prevState.input]);
+            return {list: newItems};
         })
     }
     removeItem = (itemIndex) => {
         this.setState((prevState) => {
-            const newItems = prevState.list.splice(itemIndex, 1)
-            return {
-                list: newItems
-            }
-        })
+            const newItems = prevState.list.filter((v ,item) => {
+                return (itemIndex != item)
+            });
+            return {list: newItems};
+        });
     }
-    render(
-        <div>
-            <ListInput
-                input={this.state.input}
-                changeInput={this.changeInput}
-                addItem={this.addItem}
-            />
-            <List
-                list={this.state.list}
-                removeItem={this.removeItem}
-            />
-            <ListCounter
-                count={this.state.list.length}
-            />
-        </div>
-    )
+    render() {
+        return(
+            <div>
+                <ListInput input={this.state.input} changeInput={this.changeInput} addItem={this.addItem}/>
+                <List list={this.state.list} removeItem={this.removeItem}/>
+                <ListCounter count={this.state.list.length}/>
+            </div>
+        )
+    }
 }
 
 export default App;

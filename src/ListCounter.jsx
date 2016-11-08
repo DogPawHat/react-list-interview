@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const ListCounter = props => {
     return(
-        <p>props.count</p>
+        <p>{props.count}</p>
     );
 };
 

@@ -1,16 +1,16 @@
 import * as React from 'react';
 
 const List = props => {
-    removeListEventHandlerCreator = index => {
+    const removeListEventHandlerCreator = index => {
         return e => {
             props.removeItem(index);
         }
     }
     return(
         <ul>
-            { props.list.map((i, value) => {
+            { props.list.map((value, index) => {
                 return (
-                    <li onClick={removeListEventHandlerCreator(i)}>value</li>
+                    <li key={index} onClick={removeListEventHandlerCreator(index)}>{value}</li>
                 )
             })}
         </ul>
